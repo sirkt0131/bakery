@@ -32,16 +32,19 @@ if [ ! -d ./meta-ros ]; then
     git clone https://github.com/sirkt0131/meta-ros.git -b gatesgarth
 fi
 
+poky=`pwd`
+e_poky=`echo $poky | sed -e "s/\//\\\\\\\\\//g"`
+
 #
 # Initialize environment
 #
 . ./oe-init-build-env
 
 #
-# Setup configuration
+# Setup configuration (in build dir)
 #
-
-cp -p ../../conf/* ./conf/.
+sed -e "s/<poky-dir>/$e_poky/g" ../../conf/bblayers.conf > ./conf/bblayers.conf
+cp -p ../../conf/local.conf ./conf/.
 
 #
 # Apply patches
