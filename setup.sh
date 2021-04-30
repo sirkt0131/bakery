@@ -35,12 +35,13 @@ fi
 #
 # Initialize environment
 #
-/bin/sh ./oe-init-build-env
+. ./oe-init-build-env
 
 #
 # Setup configuration
 #
-cp -p ../conf/* build/conf/.
+
+cp -p ../../conf/* ./conf/.
 
 #
 # Apply patches
