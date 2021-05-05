@@ -54,3 +54,4 @@ cp -p ../../conf/local.conf ./conf/.
 # bitbake!
 #
 bitbake-layers show-layers
+bitbake core-image-base
